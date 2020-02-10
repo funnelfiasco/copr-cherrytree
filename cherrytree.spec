@@ -3,8 +3,8 @@
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
 Name:           cherrytree
-Version:        0.38.9
-Release:        2%{?dist}
+Version:        0.38.10
+Release:        1%{?dist}
 
 Summary:        Hierarchical note taking application
 
@@ -95,6 +95,9 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Mon Feb 10 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.38.10-1
+- Update to latest upstream release
+
 * Fri Nov 01 2019 Ben Cotton <bcotton@fedoraproject.org> - 0.38.9-2
 - Move to COPR
 
