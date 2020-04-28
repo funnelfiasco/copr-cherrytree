@@ -11,7 +11,7 @@ Source0: https://dbus.freedesktop.org/releases/dbus-python/%{name}-%{version}.ta
 Source1: https://dbus.freedesktop.org/releases/dbus-python/%{name}-%{version}.tar.gz.asc
 
 # borrow centos7 patch to use sitearch properly
-Patch0: 0001-Move-python-modules-to-architecture-specific-directo.patch
+Patch0: https://raw.githubusercontent.com/funnelfiasco/copr-cherrytree/master/0001-Move-python-modules-to-architecture-specific-directo.patch
 
 BuildRequires: dbus-devel
 BuildRequires: dbus-glib-devel
