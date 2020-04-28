@@ -7,8 +7,8 @@ Release: 7%{?dist}
 
 License: MIT
 URL:     http://www.freedesktop.org/wiki/Software/DBusBindings/
-Source0: http://dbus.freedesktop.org/releases/dbus-python/%{name}-%{version}.tar.gz
-Source1: http://dbus.freedesktop.org/releases/dbus-python/%{name}-%{version}.tar.gz.asc
+Source0: https://dbus.freedesktop.org/releases/dbus-python/%{name}-%{version}.tar.gz
+Source1: https://dbus.freedesktop.org/releases/dbus-python/%{name}-%{version}.tar.gz.asc
 
 # borrow centos7 patch to use sitearch properly
 Patch0: 0001-Move-python-modules-to-architecture-specific-directo.patch
