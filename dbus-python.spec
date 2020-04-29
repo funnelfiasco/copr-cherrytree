@@ -18,7 +18,8 @@ BuildRequires: dbus-glib-devel
 BuildRequires: python2-docutils
 # for %%check
 BuildRequires: dbus-x11
-BuildRequires: python2-gobject
+#BuildRequires: python2-gobject
+BuildRequires: pygobject2
 # autoreconf and friends
 BuildRequires: autoconf-archive automake libtool
 
