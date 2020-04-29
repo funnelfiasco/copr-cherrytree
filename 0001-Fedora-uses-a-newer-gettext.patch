@@ -1,0 +1,25 @@
+From 758886e52bec48c3436257448a8346ed3f9961e3 Mon Sep 17 00:00:00 2001
+From: Ben Cotton <bcotton@fedoraproject.org>
+Date: Wed, 29 Apr 2020 15:20:43 -0400
+Subject: [PATCH] Fedora uses a newer gettext
+
+---
+ future/configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/future/configure.ac b/future/configure.ac
+index 7378991b..cabbb29f 100644
+--- a/future/configure.ac
++++ b/future/configure.ac
+@@ -25,7 +25,7 @@ AC_SUBST(GETTEXT_PACKAGE)
+ AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"],
+                    [The domain to use with gettext])
+ AM_GNU_GETTEXT([external])
+-AM_GNU_GETTEXT_VERSION([0.19.2])
++AM_GNU_GETTEXT_VERSION([0.20.0])
+ 
+ CHERRYTREE_LOCALEDIR=[${datadir}/locale]
+ AC_SUBST(CHERRYTREE_LOCALEDIR)
+-- 
+2.25.4
+
