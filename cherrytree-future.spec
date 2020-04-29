@@ -1,5 +1,7 @@
 %global git_revision    7a26f271b78e7a3769fc1f5a627dc11d586cbb53
 %global progname        cherrytree
+# Package does not provide debug sources
+%global debug_package %{nil}
 Name:       %{progname}-future
 Version:    0.0.1.git%{git_revision}
 Release:    1%{?dist}
