@@ -96,8 +96,6 @@ file with extension ".ctd".
 %build
 cd future
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
-# We have to override the gettext version to make autoconf happy
-export AM_GNU_GETTEXT_VERSION=0.20.0
 ./build.sh R
 
 %install
