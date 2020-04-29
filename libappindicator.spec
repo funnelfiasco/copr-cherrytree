@@ -131,14 +131,14 @@ autoreconf -vif
 mkdir build-gtk2 build-gtk3
 
 pushd build-gtk2
-export CFLAGS="%{optflags} $CFLAGS -Wno-deprecated-declarations"
+export CFLAGS="%{optflags} $CFLAGS -Wno-deprecated-declarations -DGLIB_DISABLE_DEPRECATION_WARNINGS"
 %configure --with-gtk=2 --enable-gtk-doc --disable-static
 # Parallel make, crash the build
 make -j1 V=1
 popd
 
 pushd build-gtk3
-export CFLAGS="%{optflags} $CFLAGS -Wno-deprecated-declarations"
+export CFLAGS="%{optflags} $CFLAGS -Wno-deprecated-declarations -DGLIB_DISABLE_DEPRECATION_WARNINGS"
 %configure --with-gtk=3 --enable-gtk-doc --disable-static
 # Parallel make, crash the build
 make -j1 V=1
