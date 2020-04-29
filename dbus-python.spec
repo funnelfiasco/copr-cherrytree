@@ -83,6 +83,8 @@ make check -k -C python2-build || (cat python2-build/test-suite.log && false)
 %{python2_sitearch}/*.so
 %{python2_sitearch}/dbus/
 %{python2_sitearch}/dbus_python*egg-info
+/usr/include/dbus-1.0/dbus/dbus-python.h
+/usr/lib64/pkgconfig/dbus-python.pc
 
 %changelog
 * Tue Apr 28 2020 Ben Cotton <bcotton@fedoraproject.org> - 1.2.8-7
