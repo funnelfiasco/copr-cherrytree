@@ -5,7 +5,7 @@
 # Package does not provide debug sources
 %global debug_package %{nil}
 Name:       %{progname}-future
-Version:    0.0.1.{%git_date}git%{git_rev}
+Version:    0.0.1.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 Summary:    Hierarchical note taking application
 
