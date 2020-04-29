@@ -16,7 +16,7 @@ index 7378991b..cabbb29f 100644
                     [The domain to use with gettext])
  AM_GNU_GETTEXT([external])
 -AM_GNU_GETTEXT_VERSION([0.19.2])
-+AM_GNU_GETTEXT_VERSION([0.20.0])
++AM_GNU_GETTEXT_VERSION([0.20])
  
  CHERRYTREE_LOCALEDIR=[${datadir}/locale]
  AC_SUBST(CHERRYTREE_LOCALEDIR)
