@@ -102,7 +102,7 @@ export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-install -m 0755 %{progname} %{buildroot}/%{_bindir}/%{progname}
+install -m 0755 future/%{progname} %{buildroot}/%{_bindir}/%{progname}
 
 %files
 %license license.txt
