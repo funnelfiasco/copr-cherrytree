@@ -1,10 +1,13 @@
+%global git_date 20200427
+%global git_rev 7a26f27
 %global git_revision    7a26f271b78e7a3769fc1f5a627dc11d586cbb53
 %global progname        cherrytree
 # Package does not provide debug sources
 %global debug_package %{nil}
 Name:       %{progname}-future
-Version:    0.0.1.git%{git_revision}
+Version:    0.0.1.%{git_date}git%{git_rev}
 Release:    2%{?dist}
+
 Summary:    Hierarchical note taking application
 
 License:    GPLv3+
@@ -145,8 +148,11 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
-* Fri May 01 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.git7a26f27-2
+* Fri May 01 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.20200429git7a26f27-2
 - Add desktop niceties
+
+* Wed Apr 29 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.20200429git7a26f27-1
+- Bring the version string closer to Fedora's requirements
 
 * Wed Apr 29 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.git7a26f27-1
 - Initial COPR packaging
