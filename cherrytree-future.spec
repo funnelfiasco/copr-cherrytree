@@ -4,7 +4,7 @@
 %global debug_package %{nil}
 Name:       %{progname}-future
 Version:    0.0.1.git%{git_revision}
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Hierarchical note taking application
 
 License:    GPLv3+
@@ -13,6 +13,7 @@ Source0:    https://github.com/giuspen/cherrytree/archive/%{git_revision}.zip
 Patch0:     https://raw.githubusercontent.com/funnelfiasco/copr-cherrytree/master/0001-Fedora-uses-a-newer-gettext.patch
 
 BuildRequires: cpputest-devel
+BuildRequires: desktop-file-utils
 BuildRequires: gcc-c++ libtool autoconf gtkmm30-devel gtksourceviewmm3-devel libxml++-devel
 BuildRequires: libsq3-devel gettext-devel gettext intltool python3-lxml libxml2 gspell-devel
 
@@ -102,12 +103,50 @@ export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}/%{_datadir}/applications
+mkdir -p %{buildroot}/%{_datadir}/mime/packages/
+mkdir -p %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/
+mkdir -p %{buildroot}/%{_datadir}/metainfo/
+mkdir -p %{buildroot}/%{_mandir}/man1/
 install -m 0755 future/%{progname} %{buildroot}/%{_bindir}/%{progname}
+install -m 0644 linux/%{progname}.desktop %{buildroot}/%{_datadir}/applications/
+install -m 0644 future/data/%{progname}.appdata.xml %{buildroot}/%{_datadir}/metainfo/
+install -m 0644 future/data/%{progname}.mime %{buildroot}/%{_datadir}/mime/packages/%{progname}.mime
+install -m 0644 future/icons/%{progname}.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/%{progname}.svg
+install -m 0644 future/data/cherrytree.1.gz %{buildroot}/%{_mandir}/man1/%{progname}.1.gz
+
+
+%post
+update-desktop-database &> /dev/null || :
+touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+touch --no-create %{_datadir}/mime/packages &>/dev/null || :
+
+%postun
+update-desktop-database &> /dev/null || :
+if [ $1 -eq 0 ] ; then
+    touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+    update-mime-database %{_datadir}/mime &> /dev/null || :
+fi
+
+%posttrans
+gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
+
 
 %files
 %license license.txt
 %{_bindir}/%{progname}
+%{_datadir}/applications/%{progname}.desktop
+%{_datadir}/metainfo/%{progname}.appdata.xml
+%{_datadir}/mime/packages/%{progname}.mime
+%{_datadir}/icons/hicolor/scalable/apps/%{progname}.svg
+%{_mandir}/man1/%{progname}.1.gz
+
 
 %changelog
+* Fri May 01 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.git7a26f27-2
+- Add desktop niceties
+
 * Wed Apr 29 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.git7a26f27-1
 - Initial COPR packaging
