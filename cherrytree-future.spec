@@ -1,20 +1,22 @@
-%global git_date 20200427
-%global git_rev 7a26f27
-%global git_revision    7a26f271b78e7a3769fc1f5a627dc11d586cbb53
+%global git_date 20200503
+%global git_rev 1b8db2b
+%global git_revision    1b8db2b6f1d135f319db46b6ae512478f9c038b1
 %global progname        cherrytree
+%global srcpkgdir	%{progname}-%{git_revision}
 # Package does not provide debug sources
 %global debug_package %{nil}
 Name:       %{progname}-future
 Version:    0.0.1.%{git_date}git%{git_rev}
-Release:    2%{?dist}
+Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
 
 License:    GPLv3+
 URL:        http://www.giuspen.com/cherrytree/
 Source0:    https://github.com/giuspen/cherrytree/archive/%{git_revision}.zip
-Patch0:     https://raw.githubusercontent.com/funnelfiasco/copr-cherrytree/master/0001-Fedora-uses-a-newer-gettext.patch
+#Patch0:     https://raw.githubusercontent.com/funnelfiasco/copr-cherrytree/master/0001-Fedora-uses-a-newer-gettext.patch
 
+BuildRequires: cmake
 BuildRequires: cpputest-devel
 BuildRequires: desktop-file-utils
 BuildRequires: gcc-c++ libtool autoconf gtkmm30-devel gtksourceviewmm3-devel libxml++-devel
@@ -96,27 +98,21 @@ file with extension ".ctd".
 
 
 %prep
-%setup -q -n %{progname}-%{git_revision}
-%patch0 -p1
+%setup -q -n %{srcpkgdir}
 
 %build
-cd future
+mkdir build
+cd build
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
-./build.sh R
+cmake ../future
+make
 
 %install
-mkdir -p %{buildroot}/%{_bindir}
-mkdir -p %{buildroot}/%{_datadir}/applications
-mkdir -p %{buildroot}/%{_datadir}/mime/packages/
-mkdir -p %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/
-mkdir -p %{buildroot}/%{_datadir}/metainfo/
-mkdir -p %{buildroot}/%{_mandir}/man1/
-install -m 0755 future/%{progname} %{buildroot}/%{_bindir}/%{progname}
-install -m 0644 linux/%{progname}.desktop %{buildroot}/%{_datadir}/applications/
-install -m 0644 future/data/%{progname}.appdata.xml %{buildroot}/%{_datadir}/metainfo/
-install -m 0644 future/data/%{progname}.mime %{buildroot}/%{_datadir}/mime/packages/%{progname}.mime
-install -m 0644 future/icons/%{progname}.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/%{progname}.svg
-install -m 0644 future/data/cherrytree.1.gz %{buildroot}/%{_mandir}/man1/%{progname}.1.gz
+cmake -DCMAKE_INSTALL_PREFIX="%{buildroot}/usr" -P %{_builddir}/%{srcpkgdir}/build/cmake_install.cmake
+# Put a few things in the places we expect
+mkdir -p %{buildroot}%{_datadir}/mime/packages
+mv %{buildroot}%{_datadir}/mime-info/* %{buildroot}/%{_datadir}/mime/packages
+rmdir %{buildroot}/%{_datadir}/mime-info/
 
 
 %post
@@ -140,14 +136,23 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 %files
 %license license.txt
 %{_bindir}/%{progname}
+%dir %{_datadir}/cherrytree
+%{_datadir}/cherrytree/data/script3.js
+%{_datadir}/cherrytree/data/styles3.css
+%{_datadir}/cherrytree/language-specs/clisp.lang
+%{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/applications/%{progname}.desktop
-%{_datadir}/metainfo/%{progname}.appdata.xml
+%{_datadir}/metainfo/%{progname}.metainfo.xml
 %{_datadir}/mime/packages/%{progname}.mime
+%{_datadir}/mime/packages/%{progname}.keys
 %{_datadir}/icons/hicolor/scalable/apps/%{progname}.svg
 %{_mandir}/man1/%{progname}.1.gz
 
 
 %changelog
+* Sun May 03 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.1b8db2b-1
+- Update to latest upstream snapshot
+
 * Fri May 01 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.20200429git7a26f27-2
 - Add desktop niceties
 
