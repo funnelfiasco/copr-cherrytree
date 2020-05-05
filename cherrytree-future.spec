@@ -1,6 +1,6 @@
-%global git_date 20200503
-%global git_rev 1b8db2b
-%global git_revision    1b8db2b6f1d135f319db46b6ae512478f9c038b1
+%global git_date 20200505
+%global git_rev 26afcc6
+%global git_revision    26afcc6b27635d5b710c481daf9ae74c8ab20ea8
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
 # Package does not provide debug sources
@@ -150,6 +150,9 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Tue May 05 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.20200505git26afcc6-1
+- Update to latest upstream snapshot
+
 * Sun May 03 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.1b8db2b-1
 - Update to latest upstream snapshot
 
