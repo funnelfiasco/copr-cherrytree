@@ -1,6 +1,6 @@
-%global git_date 20200505
-%global git_rev 26afcc6
-%global git_revision    26afcc6b27635d5b710c481daf9ae74c8ab20ea8
+%global git_date 20200506
+%global git_rev c1b48d5
+%global git_revision    c1b48d563e2c44b9df385f92f461bed58a4e2d26
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
 # Package does not provide debug sources
@@ -17,7 +17,6 @@ Source0:    https://github.com/giuspen/cherrytree/archive/%{git_revision}.zip
 #Patch0:     https://raw.githubusercontent.com/funnelfiasco/copr-cherrytree/master/0001-Fedora-uses-a-newer-gettext.patch
 
 BuildRequires: cmake
-BuildRequires: cpputest-devel
 BuildRequires: desktop-file-utils
 BuildRequires: gcc-c++ libtool autoconf gtkmm30-devel gtksourceviewmm3-devel libxml++-devel
 BuildRequires: libsq3-devel gettext-devel gettext intltool python3-lxml libxml2 gspell-devel
@@ -104,7 +103,7 @@ file with extension ".ctd".
 mkdir build
 cd build
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
-cmake ../future
+cmake -DBUILD_TESTING=OFF ../future
 make
 
 %install
@@ -150,6 +149,11 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Wed May 06 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.20200506gitc1b48d5-1
+- Update to latest upstream snapshot
+- Includes fixes for 32-bit compilation
+- Includes the ability to skip tests
+
 * Tue May 05 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.20200505git26afcc6-1
 - Update to latest upstream snapshot
 
