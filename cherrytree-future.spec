@@ -1,12 +1,12 @@
-%global git_date 20200506
-%global git_rev c1b48d5
-%global git_revision    c1b48d563e2c44b9df385f92f461bed58a4e2d26
+%global git_date 20200511
+%global git_rev 6bac8ac
+%global git_revision    6bac8acf73dad4781d7d217ca119532532b7f5a4
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
 # Package does not provide debug sources
 %global debug_package %{nil}
 Name:       %{progname}-future
-Version:    0.0.1.%{git_date}git%{git_rev}
+Version:    0.99.0.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -113,6 +113,7 @@ mkdir -p %{buildroot}%{_datadir}/mime/packages
 mv %{buildroot}%{_datadir}/mime-info/* %{buildroot}/%{_datadir}/mime/packages
 rmdir %{buildroot}/%{_datadir}/mime-info/
 
+%find_lang %{progname}
 
 %post
 update-desktop-database &> /dev/null || :
@@ -132,7 +133,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
-%files
+%files -f %{progname}.lang
 %license license.txt
 %{_bindir}/%{progname}
 %dir %{_datadir}/cherrytree
@@ -141,7 +142,7 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 %{_datadir}/cherrytree/language-specs/clisp.lang
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/applications/%{progname}.desktop
-%{_datadir}/metainfo/%{progname}.metainfo.xml
+%{_datadir}/metainfo/com.giuspen.%{progname}.metainfo.xml
 %{_datadir}/mime/packages/%{progname}.mime
 %{_datadir}/mime/packages/%{progname}.keys
 %{_datadir}/icons/hicolor/scalable/apps/%{progname}.svg
@@ -149,6 +150,10 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Mon May 11 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.0.20200511git6bac8ac-1
+- Update to latest upstream snapshot
+- Inludes language support
+
 * Wed May 06 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.0.1.20200506gitc1b48d5-1
 - Update to latest upstream snapshot
 - Includes fixes for 32-bit compilation
