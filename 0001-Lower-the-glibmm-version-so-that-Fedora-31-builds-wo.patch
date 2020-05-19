@@ -1,0 +1,25 @@
+From 7664034770ba011313a61bf2113b13110932ff5c Mon Sep 17 00:00:00 2001
+From: Ben Cotton <bcotton@fedoraproject.org>
+Date: Tue, 19 May 2020 16:00:15 -0400
+Subject: [PATCH] Lower the glibmm version so that Fedora 31 builds work
+
+---
+ future/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/future/CMakeLists.txt b/future/CMakeLists.txt
+index a1c1bd8b..3bd8c7e6 100644
+--- a/future/CMakeLists.txt
++++ b/future/CMakeLists.txt
+@@ -82,7 +82,7 @@ endif()
+ include(FindPkgConfig)
+ pkg_check_modules(GTKMM gtkmm-3.0 REQUIRED)
+ pkg_check_modules(GTKSVMM gtksourceviewmm-3.0 REQUIRED)
+-pkg_check_modules(GLIBMM glibmm-2.4>=2.64 REQUIRED)
++pkg_check_modules(GLIBMM glibmm-2.4>=2.62 REQUIRED)
+ pkg_check_modules(PANGOMM pangomm-1.4 REQUIRED)
+ pkg_check_modules(GSPELL gspell-1 REQUIRED)
+ pkg_check_modules(LIBXML libxml++-2.6 REQUIRED)
+-- 
+2.26.2
+
