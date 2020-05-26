@@ -8,12 +8,14 @@ This repository contains the spec files etc for building the [cherrytree COPR](h
 
 ### Fedora 31
 
-Fedora 31 has both **cherrytree** (the released Python2 application) and **cherrytree-future** (the in-development C++ rewrite) packages available on x86_64 and aarch64.
+Fedora 31 has **cherrytree** (the released Python2 application).
 
 To install:
 
 1. `sudo dnf copr enable bcotton/cherrytree`
-2. `sudo dnf install cherrytree` *or* `sudo dnf install cherrytree-future`
+2. `sudo dnf install cherrytree` 
+
+Old builds of **cherrytree-future** are available, but due to new dependencies, it is no longer possible to build that package on Fedora 31 without adopting additional dependencies.
 
 ## Fedora 32 and Rawhide
 
