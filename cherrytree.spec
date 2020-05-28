@@ -3,7 +3,7 @@
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
 Name:           cherrytree
-Version:        0.39.2
+Version:        0.39.3
 Release:        1%{?dist}
 
 Summary:        Hierarchical note taking application
@@ -95,6 +95,9 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Wed May 27 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.39.3-1
+- Update to latest upstream release
+
 * Wed Apr 29 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.39.2-1
 - Update to latest upstream release
 
