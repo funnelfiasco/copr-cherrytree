@@ -1,12 +1,12 @@
-%global git_date 20200526
-%global git_rev 4e15514
-%global git_revision    4e15514d08ef5f4368424549be9bfe3be73d4cbe
+%global git_date 20200609
+%global git_rev eb02517
+%global git_revision    eb025179a2b92cc169a093fb01e0371c9b567ff1
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
 # Package does not provide debug sources
 %global debug_package %{nil}
 Name:       %{progname}-future
-Version:    0.99.0.%{git_date}git%{git_rev}
+Version:    0.99.1.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -20,6 +20,7 @@ BuildRequires: cmake
 BuildRequires: desktop-file-utils
 BuildRequires: gcc-c++ libtool autoconf gtkmm30-devel gtksourceviewmm3-devel libxml++-devel
 BuildRequires: libsq3-devel gettext-devel gettext intltool python3-lxml libxml2 gspell-devel
+BuildRequires: libcurl-devel
 
 # This may be more explicit requires than strictly necessary. It is the result of running ldd on
 # the binary and `rpm -q --whatprovides`-ing the results
@@ -150,6 +151,13 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Tue Jun 09 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.1.20200609giteb02517-1
+- Update to latest upstream snapshot
+
+* Mon Jun 01 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.0.20200601git33f4bc1-1
+- Update to latest upstream snapshot
+- Includes support for importing markdown and Zim files
+
 * Tue May 26 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.0.20200526git4e15514-1
 - Update to latest upstream snapshot
 - Includes support for file importing
