@@ -1,12 +1,10 @@
-%global git_date 20200609
-%global git_rev eb02517
-%global git_revision    eb025179a2b92cc169a093fb01e0371c9b567ff1
+%global git_date 20200624
+%global git_rev 90c4526
+%global git_revision    90c452660806e08f86c139d8c07ed4b3e0279486
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
-# Package does not provide debug sources
-%global debug_package %{nil}
 Name:       %{progname}-future
-Version:    0.99.1.%{git_date}git%{git_rev}
+Version:    0.99.2.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -104,7 +102,7 @@ file with extension ".ctd".
 mkdir build
 cd build
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
-cmake -DBUILD_TESTING=OFF ../future
+cmake -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug ../future
 make
 
 %install
@@ -151,6 +149,12 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Wed Jun 24 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.2.20200623git90c4526-1
+- Update to latest upstream snapshot
+- Includes Pandoc import support
+- Includes support for inserting a table of contents
+- Includes debuginfo
+
 * Tue Jun 09 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.1.20200609giteb02517-1
 - Update to latest upstream snapshot
 
