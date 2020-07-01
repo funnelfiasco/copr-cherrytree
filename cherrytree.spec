@@ -3,7 +3,7 @@
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
 Name:           cherrytree
-Version:        0.39.3
+Version:        0.39.4
 Release:        1%{?dist}
 
 Summary:        Hierarchical note taking application
@@ -50,6 +50,7 @@ file with extension ".ctd".
 %{__python2} setup.py install -O1 --root %{buildroot}
 %py_byte_compile %{__python2} %{buildroot}%{_datadir}/%{name}
 
+mv %{buildroot}%{_datadir}/metainfo/com.giuspen.%{name}.metainfo.xml %{buildroot}%{_datadir}/metainfo/%{name}.appdata.xml
 desktop-file-validate %{buildroot}/%{_datadir}/applications/cherrytree.desktop
 
 # don't include useless egg
@@ -95,6 +96,9 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Wed Jun 24 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.39.4-1
+- Update to latest upstream release
+
 * Wed May 27 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.39.3-1
 - Update to latest upstream release
 
