@@ -1,10 +1,10 @@
-%global git_date 20200624
-%global git_rev 90c4526
-%global git_revision    90c452660806e08f86c139d8c07ed4b3e0279486
+%global git_date 20200701
+%global git_rev c94c9df
+%global git_revision    c94c9df33b2fe43836b872a7c8d1d96f96a47061
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.2.%{git_date}git%{git_rev}
+Version:    0.99.3.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -149,6 +149,12 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Wed Jul 01 2020 Ben Cotton <bcotton@fedoraproject.rog> - 0.99.3.20200701gitc94c9df-1
+- Missed that upstream bumped the release version. This is only a packaging update.
+
+* Wed Jul 01 2020 Ben Cotton <bcotton@fedoraproject.rog> - 0.99.2.20200701gitc94c9df-1
+- Update to latest upstream snapshot
+
 * Wed Jun 24 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.2.20200623git90c4526-1
 - Update to latest upstream snapshot
 - Includes Pandoc import support
