@@ -1,10 +1,10 @@
-%global git_date 20200709
-%global git_rev 088c243
-%global git_revision    088c24308578a4b686937d024f56d99599622bfe
+%global git_date 20200716
+%global git_rev bc31203
+%global git_revision    bc3120360e2fd384049f2a4a7164c7cc1df85d2a
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.4.%{git_date}git%{git_rev}
+Version:    0.99.5.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -149,6 +149,11 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Thu Jul 16 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.5.20200716gitbc31203-1
+- Update to the latest upstream snapshot
+- Includes 0.99.5 release
+- Includes support for importing Leo files
+
 * Thu Jul 09 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.4.20200708git088c243-1
 - Update to the latest upstream snaphot
 - Includes 0.99.4 release
