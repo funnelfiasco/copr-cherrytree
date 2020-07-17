@@ -1,6 +1,6 @@
-%global git_date 20200716
-%global git_rev bc31203
-%global git_revision    bc3120360e2fd384049f2a4a7164c7cc1df85d2a
+%global git_date 20200717
+%global git_rev 06242e7
+%global git_revision    06242e7fb5de63b9727cc75eeabcdca3ed20a9e4
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -149,6 +149,10 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Fri Jul 17 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.5.20200717git06242e7-1
+- Update to the latest upstream snapshot
+- Includes a fix for PDF exports
+
 * Thu Jul 16 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.5.20200716gitbc31203-1
 - Update to the latest upstream snapshot
 - Includes 0.99.5 release
