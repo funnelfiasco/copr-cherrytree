@@ -1,10 +1,10 @@
-%global git_date 20200728
-%global git_rev 36c4bc9
-%global git_revision    36c4bc933016214ff0015d341c491518190e9a2c
+%global git_date 20200806
+%global git_rev 5151d6a
+%global git_revision    5151d6a11f96ea252ae356030125efb0e2cb466d
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.6.%{git_date}git%{git_rev}
+Version:    0.99.7.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -149,6 +149,16 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Thu Aug 6 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.7.20200806git5151d6a-1
+- Update to latest upstream snapshot
+
+* Mon Aug 3 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.7.20200803git63db740-1
+- Update to latest upstream snapshot
+- Includes 0.99.7 release
+
+* Fri Jul 31 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.6.20200731git80f2886-1
+- Update to latest upstream snapshot
+
 * Tue Jul 28 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.6.20200728git36c4bc9-1
 - Update to latest upstream snapshot
 
