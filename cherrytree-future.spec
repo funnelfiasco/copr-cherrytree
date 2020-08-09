@@ -1,6 +1,6 @@
-%global git_date 20200806
-%global git_rev 5151d6a
-%global git_revision    5151d6a11f96ea252ae356030125efb0e2cb466d
+%global git_date 20200809
+%global git_rev 551237c
+%global git_revision    551237c20f081e87d8841baffdef9b78571b6886
 %global progname        cherrytree
 %global srcpkgdir	%{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -102,7 +102,7 @@ file with extension ".ctd".
 mkdir build
 cd build
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
-cmake -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug ../future
+cmake -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug ..
 make
 
 %install
@@ -149,6 +149,10 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Sun Aug 9 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.7.20200809git551237c-1
+- Update to latest upstream snapshot
+- Includes "future becomes present" (still tagged 0.99.7 in upstream config)
+
 * Thu Aug 6 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.7.20200806git5151d6a-1
 - Update to latest upstream snapshot
 
