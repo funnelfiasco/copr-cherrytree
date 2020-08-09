@@ -2,7 +2,7 @@
 %global git_rev 551237c
 %global git_revision    551237c20f081e87d8841baffdef9b78571b6886
 %global progname        cherrytree
-%global srcpkgdir	%{progname}-%{git_revision}
+%global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
 Version:    0.99.7.%{git_date}git%{git_rev}
 Release:    1%{?dist}
@@ -12,7 +12,6 @@ Summary:    Hierarchical note taking application
 License:    GPLv3+
 URL:        http://www.giuspen.com/cherrytree/
 Source0:    https://github.com/giuspen/cherrytree/archive/%{git_revision}.zip
-#Patch0:     https://raw.githubusercontent.com/funnelfiasco/copr-cherrytree/master/0001-Fedora-uses-a-newer-gettext.patch
 
 BuildRequires: cmake
 BuildRequires: desktop-file-utils
@@ -92,7 +91,7 @@ Requires: zlib
 %description
 CherryTree is a hierarchical note taking application, featuring rich text and
 syntax highlighting, storing all the data (including images) in a single XML
-file with extension ".ctd".
+or SQLite file.
 
 
 %prep
