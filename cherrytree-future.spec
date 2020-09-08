@@ -1,10 +1,10 @@
-%global git_date 20200901
-%global git_rev cc43bb2
-%global git_revision    cc43bb2aa3c8ff8951702aecdcd6719d149e9613
+%global git_date 20200908
+%global git_rev ecbaada
+%global git_revision    ecbaadafeaa4eaa677a67feb44ee2875a6a7a224
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.9.%{git_date}git%{git_rev}
+Version:    0.99.10.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -140,6 +140,7 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 %{_datadir}/cherrytree/language-specs/clisp.lang
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/cherrytree/language-specs/nasm.lang
+%{_datadir}/cherrytree/icons/ct_home.svg
 %{_datadir}/applications/%{progname}.desktop
 %{_datadir}/metainfo/com.giuspen.%{progname}.metainfo.xml
 %{_datadir}/mime/packages/%{progname}.mime
@@ -149,6 +150,10 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Tue Sep 08 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.10.20200908gitecbaada-1
+- Update to latest upstream snapshot
+- Includes 0.99.10 release
+
 * Tue Sep 01 2020 Ben Cotton <bcotton@fedoraproject.orG> - 0.99.9.20200901gitcc43bb2-1
 - Update to latest upstream snapshot
 
