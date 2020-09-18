@@ -1,6 +1,6 @@
-%global git_date 20200917
-%global git_rev a9cc562
-%global git_revision    a9cc56204650bf520e01fd20c2725a3ebe385ecb
+%global git_date 20200918
+%global git_rev 370f605
+%global git_revision    370f605b4e2f617109ce5180f01a50a6f64bfc55
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -141,6 +141,8 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/cherrytree/language-specs/nasm.lang
 %{_datadir}/cherrytree/icons/ct_home.svg
+%{_datadir}/cherrytree/styles/Amy.xml
+%{_datadir}/cherrytree/styles/cobalt-darkened.xml
 %{_datadir}/applications/%{progname}.desktop
 %{_datadir}/metainfo/com.giuspen.%{progname}.metainfo.xml
 %{_datadir}/mime/packages/%{progname}.mime
@@ -150,6 +152,10 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Fri Sep 18 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.11.20200918git370f605-1
+- Update to latest upstream snapshot
+- Fixes issue where styles are not packaged
+
 * Thu Sep 17 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.11.20200917gita9cc562-1
 - Update to latest upstream snapshot
 - Adds 'Amy' style for gtksourceview
