@@ -1,6 +1,6 @@
-%global git_date 20200916
-%global git_rev 344ae23
-%global git_revision    344ae236b9c5a537ec2b985e57cb864a667509a4
+%global git_date 20200917
+%global git_rev a9cc562
+%global git_revision    a9cc56204650bf520e01fd20c2725a3ebe385ecb
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -150,6 +150,10 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Thu Sep 17 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.11.20200917gita9cc562-1
+- Update to latest upstream snapshot
+- Adds 'Amy' style for gtksourceview
+
 * Wed Sep 16 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.11.20200916git344ae23-1
 - Update to latest upstream snapshot
 
