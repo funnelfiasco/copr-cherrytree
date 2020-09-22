@@ -1,10 +1,10 @@
-%global git_date 20200918
-%global git_rev 370f605
-%global git_revision    370f605b4e2f617109ce5180f01a50a6f64bfc55
+%global git_date 20200921
+%global git_rev f2cfad1
+%global git_revision    f2cfad1bb15c8b7f1b4440bf1ff39c57a7b4dd6d
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.11.%{git_date}git%{git_rev}
+Version:    0.99.12.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -152,6 +152,11 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Mon Sep 21 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.12.20200921gitf2cfad1-1
+- Update to latest upstream snapshot
+- Includes 0.99.12 release
+- Includes translations for: cs, nl, hy, it, and sv
+
 * Fri Sep 18 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.11.20200918git370f605-1
 - Update to latest upstream snapshot
 - Fixes issue where styles are not packaged
