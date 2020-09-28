@@ -1,0 +1,94 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -104,15 +104,13 @@ pkg_check_modules(GSPELL gspell-1 REQUIRED)
+ pkg_check_modules(LIBXML libxml++-2.6 REQUIRED)
+ pkg_check_modules(SQLITE sqlite3 REQUIRED)
+ pkg_check_modules(CURL libcurl REQUIRED)
++pkg_check_modules(SPDLOG spdlog REQUIRED)
+ if(BUILD_TESTING)
+   pkg_check_modules(CPPUTEST cpputest  REQUIRED)
+ endif()
+ 
+ add_subdirectory(src/7za)
+ 
+-# Spdlog
+-add_subdirectory(src/spdlog)
+-
+ 
+ include(FindPackageHandleStandardArgs)
+ 
+@@ -126,6 +124,7 @@ include_directories(
+   SYSTEM ${LIBXML_INCLUDE_DIRS}
+   SYSTEM ${SQLITE_INCLUDE_DIRS}
+   SYSTEM ${CURL_INCLUDE_DIRS}
++  SYSTEM ${SPDLOG_INCLUDE_DIRS}
+   include_directories(.) # to find src/fmt
+ )
+ 
+--- a/src/ct/CMakeLists.txt
++++ b/src/ct/CMakeLists.txt
+@@ -74,9 +74,9 @@ target_link_libraries(cherrytree_shared
+     ${LIBXML_LIBRARIES}
+     ${SQLITE_LIBRARIES}
+     ${CURL_LIBRARIES}
++    ${SPDLOG_LIBRARIES}
+     pthread
+     7za_static
+-    spdlog::spdlog
+ )
+ 
+ target_include_directories(cherrytree_shared PUBLIC "..")
+--- a/src/ct/ct_actions_others.cc
++++ b/src/ct/ct_actions_others.cc
+@@ -30,7 +30,7 @@
+ #include <gtkmm/stock.h>
+ #include <cstdlib>
+ #include "ct_logging.h"
+-#include <spdlog/fmt/bundled/printf.h>
++#include <fmt/printf.h>
+ 
+ // Cut Link
+ void CtActions::link_cut()
+--- a/src/ct/ct_filesystem.cc
++++ b/src/ct/ct_filesystem.cc
+@@ -24,7 +24,7 @@
+ #include <glibmm/miscutils.h>
+ #include <glib/gstdio.h>
+ #include <curl/curl.h>
+-#include <spdlog/fmt/bundled/printf.h>
++#include <fmt/printf.h>
+ #include <system_error>
+ 
+ #include "ct_filesystem.h"
+--- a/src/ct/ct_logging.h
++++ b/src/ct/ct_logging.h
+@@ -25,6 +25,7 @@
+ 
+ 
+ #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_DEBUG
++#define SPDLOG_FMT_EXTERNAL
+ #include <spdlog/spdlog.h>
+ #include <spdlog/fmt/fmt.h>
+ #include <glibmm/ustring.h>
+--- a/src/ct/ct_misc_utils.cc
++++ b/src/ct/ct_misc_utils.cc
+@@ -32,7 +32,7 @@
+ #include <regex>
+ #include <glib/gstdio.h> // to get stats
+ #include <curl/curl.h>
+-#include <spdlog/fmt/bundled/printf.h>
++#include <fmt/printf.h>
+ 
+ #include <thread> // for parallel_for
+ #include <future> // parallel_for
+--- a/src/ct/ct_misc_utils.h
++++ b/src/ct/ct_misc_utils.h
+@@ -27,6 +27,7 @@
+ #include <gtksourceviewmm.h>
+ #include <gtkmm/treeiter.h>
+ #include <gtkmm/treestore.h>
++#define SPDLOG_FMT_EXTERNAL
+ #include <spdlog/fmt/fmt.h>
+ #include <unordered_set>
+ #include <type_traits>
+
