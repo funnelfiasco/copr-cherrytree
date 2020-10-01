@@ -5,7 +5,7 @@
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
 Version:    0.99.13.%{git_date}git%{git_rev}
-Release:    3%{?dist}
+Release:    7%{?dist}
 
 Summary:    Hierarchical note taking application
 
@@ -102,6 +102,12 @@ or SQLite file.
 
 %prep
 %setup -q -n %{srcpkgdir}
+mv src/ct/ct_actions_others.cc  src/ct/ct_actions_others.cc.in # TESTING
+mv src/ct/ct_filesystem.cc src/ct/ct_filesystem.cc.in
+mv src/ct/ct_logging.h src/ct/ct_logging.h.in
+mv src/ct/ct_misc_utils.cc src/ct/ct_misc_utils.cc.in
+mv src/ct/ct_misc_utils.h src/ct/ct_misc_utils.h.in
+
 # Remove bundled deps
 %patch0 -p 1
 #rm -r src/spdlog
@@ -111,6 +117,7 @@ mkdir build
 cd build
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
 cmake -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug ..
+# cmake -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug -DSPDLOG_FMT_EXTERNAL=ON ..
 make
 
 %install
@@ -161,7 +168,7 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
-* Mon Sep 28 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.13.20200928gitc2b7465-3
+* Mon Sep 28 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.13.20200928gitc2b7465-7
 - Remove bundled spdlog
 
 * Mon Sep 28 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.13.20200928gitc2b7465-1
