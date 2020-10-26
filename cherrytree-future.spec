@@ -1,6 +1,6 @@
-%global git_date 20201014
-%global git_rev e3e08ba
-%global git_revision    e3e08bad9af008336d184df70196664c43b0c895
+%global git_date 20201016
+%global git_rev 3cc2d92
+%global git_revision    3cc2d92ecb6d1a41fea3b2aea3613d359f3517a2
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -152,6 +152,9 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Fri Oct 16 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.16.20201016git3cc2d92-1
+- Update to latest upstream snapshot
+
 * Wed Oct 14 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.15.20201014gite3e08ba-1
 - Update to latest upstream snapshot
 - Includes support for huge xml files
