@@ -1,10 +1,10 @@
-%global git_date 20201016
-%global git_rev 3cc2d92
-%global git_revision    3cc2d92ecb6d1a41fea3b2aea3613d359f3517a2
+%global git_date 20201102
+%global git_rev dea7e7c
+%global git_revision    dea7e7ce29e2f60729033d69ede4f2b594b09e0f
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.15.%{git_date}git%{git_rev}
+Version:    0.99.18.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -17,7 +17,7 @@ BuildRequires: cmake
 BuildRequires: desktop-file-utils
 BuildRequires: gcc-c++ libtool autoconf gtkmm30-devel gtksourceviewmm3-devel libxml++-devel
 BuildRequires: libsq3-devel gettext-devel gettext intltool python3-lxml libxml2 gspell-devel
-BuildRequires: libcurl-devel
+BuildRequires: libcurl-devel uchardet-devel
 
 # This may be more explicit requires than strictly necessary. It is the result of running ldd on
 # the binary and `rpm -q --whatprovides`-ing the results
@@ -143,6 +143,13 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 %{_datadir}/cherrytree/icons/ct_home.svg
 %{_datadir}/cherrytree/styles/Amy.xml
 %{_datadir}/cherrytree/styles/cobalt-darkened.xml
+%{_datadir}/cherrytree/styles/classic.xml
+%{_datadir}/cherrytree/styles/cobalt.xml
+%{_datadir}/cherrytree/styles/kate.xml
+%{_datadir}/cherrytree/styles/oblivion.xml
+%{_datadir}/cherrytree/styles/solarized-dark.xml
+%{_datadir}/cherrytree/styles/solarized-light.xml
+%{_datadir}/cherrytree/styles/tango.xml
 %{_datadir}/applications/%{progname}.desktop
 %{_datadir}/metainfo/com.giuspen.%{progname}.metainfo.xml
 %{_datadir}/mime/packages/%{progname}.mime
@@ -152,6 +159,16 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Mon Nov 02 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.18.20201102gitdea7e7c-1
+- Update to latest upstream snapshot
+
+* Thu Oct 29 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.18.20201029gitfaa68ab-1
+- Update to version 0.99.18
+
+* Mon Oct 26 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.17.20201026git6aa84df-1
+- Update to latest upstream snapshot
+- Includes version 0.99.17
+
 * Fri Oct 16 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.16.20201016git3cc2d92-1
 - Update to latest upstream snapshot
 
