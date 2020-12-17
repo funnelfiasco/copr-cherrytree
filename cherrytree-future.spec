@@ -1,10 +1,10 @@
-%global git_date 20201202
-%global git_rev 890ba12
-%global git_revision    890ba12ac110a85b55e088c487d5d044b6c49fd8
+%global git_date 20201217
+%global git_rev 7fe5cc3
+%global git_revision    7fe5cc353c6fe935b0504bf0f7d2b4c2b485e589
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.24.%{git_date}git%{git_rev}
+Version:    0.99.25.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -159,6 +159,13 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Thu Dec 17 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.25.20201217git7fe5cc3-2
+- Includes a fix for build failures on Rawhide.
+
+* Thu Dec 17 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.25.20201217git44ad7a6-1
+- Update to latest upstream snapshot
+- Includes version 0.99.25
+
 * Wed Dec 02 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.24.20201202git890ba12-1
 - Update to version 0.99.24
 
