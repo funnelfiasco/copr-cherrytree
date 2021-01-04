@@ -1,10 +1,10 @@
-%global git_date 20201217
-%global git_rev 7fe5cc3
-%global git_revision    7fe5cc353c6fe935b0504bf0f7d2b4c2b485e589
+%global git_date 20210104
+%global git_rev 5a77e32
+%global git_revision    5a77e32f68b1f8a747332687d7c40c9fc60c1980
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.25.%{git_date}git%{git_rev}
+Version:    0.99.28.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -18,6 +18,8 @@ BuildRequires: desktop-file-utils
 BuildRequires: gcc-c++ libtool autoconf gtkmm30-devel gtksourceviewmm3-devel libxml++-devel
 BuildRequires: libsq3-devel gettext-devel gettext intltool python3-lxml libxml2 gspell-devel
 BuildRequires: libcurl-devel uchardet-devel
+BuildRequires: fmt-devel
+BuildRequires: spdlog-devel
 
 # This may be more explicit requires than strictly necessary. It is the result of running ldd on
 # the binary and `rpm -q --whatprovides`-ing the results
@@ -159,6 +161,10 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Mon Jan 04 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.90.28.20210104git5a77e32-1
+- Update to latest upstream snapshot
+- Includes version 0.99.28
+
 * Thu Dec 17 2020 Ben Cotton <bcotton@fedoraproject.org> - 0.99.25.20201217git7fe5cc3-2
 - Includes a fix for build failures on Rawhide.
 
