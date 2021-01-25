@@ -1,6 +1,6 @@
-%global git_date 20210119
-%global git_rev 9cb2d9c
-%global git_revision    9cb2d9c5b965760fd97668075901ce731e399351
+%global git_date 20210123
+%global git_rev 2484970
+%global git_revision    248497093c74135092448fb04e119ed17b815e83
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -161,6 +161,9 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Sat Jan 23 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.29.20210123git2484970-1
+- Update to latest upstream snapshot
+
 * Tue Jan 19 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.29.20210118git9cb2d9c-1
 - Update to latest upstream snapshot
 - Includes version 0.99.29
