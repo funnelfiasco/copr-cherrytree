@@ -1,6 +1,6 @@
-%global git_date 20210206
-%global git_rev 1f4962e
-%global git_revision    1f4962e4c2c8e70ff1b84062a6d5dac7d84e4e07
+%global git_date 20210219
+%global git_rev 277601d
+%global git_revision    277601d6a6bd61db5f501b023470980d78c44953
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -137,6 +137,7 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 %license license.txt
 %{_bindir}/%{progname}
 %dir %{_datadir}/cherrytree
+%{_datadir}/cherrytree/data/user-style.xml
 %{_datadir}/cherrytree/data/script3.js
 %{_datadir}/cherrytree/data/styles3.css
 %{_datadir}/cherrytree/language-specs/clisp.lang
@@ -161,6 +162,9 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Fri Feb 19 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.30.20210219git277601d-1
+- Update to latest upstream snapshot
+
 * Sat Feb 06 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.30.20210206git1f4962e-1
 - Update to latest upstream snapshot
 
