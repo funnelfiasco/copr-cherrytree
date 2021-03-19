@@ -1,11 +1,11 @@
-%global git_date 20210318
-%global git_rev 4d58c84
-%global git_revision    4d58c84e1292626bd3b20a1ee00d3ef4a30f8a23
+%global git_date 20210319
+%global git_rev 5c731cd
+%global git_revision    5c731cdea73a14645b141284f47dfc4498db18d9
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
 Version:    0.99.32.%{git_date}git%{git_rev}
-Release:    1%{?dist}
+Release:    3%{?dist}
 
 Summary:    Hierarchical note taking application
 
@@ -27,18 +27,18 @@ Requires: atk
 Requires: atkmm
 Requires: at-spi2-atk
 Requires: at-spi2-core
-Requires: bzip2-libs
+#Requires: bzip2-libs
 Requires: cairo
 Requires: cairo-gobject
 Requires: cairomm
-Requires: dbus-libs
+#Requires: dbus-libs
 Requires: enchant2
 Requires: expat
 Requires: fontconfig
 Requires: freetype
 Requires: fribidi
 Requires: gdk-pixbuf2
-Requires: glib2
+#Requires: glib2
 Requires: glibc
 Requires: glibmm24
 Requires: graphite2
@@ -48,47 +48,47 @@ Requires: gtkmm30
 Requires: gtksourceview3
 Requires: gtksourceviewmm3
 Requires: harfbuzz
-Requires: libblkid
-Requires: libdatrie
-Requires: libepoxy
-Requires: libffi
-Requires: libgcc
-Requires: libgcrypt
-Requires: libgpg-error
-Requires: libmount
-Requires: libpng
-Requires: libselinux
-Requires: libsigc++20
-Requires: libstdc++
-Requires: libthai
-Requires: libwayland-client
-Requires: libwayland-cursor
-Requires: libwayland-egl
-Requires: libX11
-Requires: libXau
-Requires: libxcb
-Requires: libXcomposite
-Requires: libXcursor
-Requires: libXdamage
-Requires: libXext
-Requires: libXfixes
-Requires: libXi
-Requires: libXinerama
-Requires: libxkbcommon
-Requires: libxml++
-Requires: libxml2
-Requires: libXrandr
-Requires: libXrender
-Requires: lz4-libs
+#Requires: libblkid
+#Requires: libdatrie
+#Requires: libepoxy
+#Requires: libffi
+#Requires: libgcc
+#Requires: libgcrypt
+#Requires: libgpg-error
+#Requires: libmount
+#Requires: libpng
+#Requires: libselinux
+#Requires: libsigc++20
+#Requires: libstdc++
+#Requires: libthai
+#Requires: libwayland-client
+#Requires: libwayland-cursor
+#Requires: libwayland-egl
+#Requires: libX11
+#Requires: libXau
+#Requires: libxcb
+#Requires: libXcomposite
+#Requires: libXcursor
+#Requires: libXdamage
+#Requires: libXext
+#Requires: libXfixes
+#Requires: libXi
+#Requires: libXinerama
+#Requires: libxkbcommon
+#Requires: libxml++
+#Requires: libxml2
+#Requires: libXrandr
+#Requires: libXrender
+#Requires: lz4-libs
 Requires: pango
 Requires: pangomm
 Requires: pcre
 Requires: pcre2
 Requires: pixman
-Requires: sqlite-libs
-Requires: systemd-libs
-Requires: xz-libs
-Requires: zlib
+#Requires: sqlite-libs
+#Requires: systemd-libs
+#Requires: xz-libs
+#Requires: zlib
 
 %description
 CherryTree is a hierarchical note taking application, featuring rich text and
@@ -104,10 +104,11 @@ mkdir build
 cd build
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
 cmake -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug ..
-make
+make %{?_smp_mflags}
 
 %install
 cmake -DCMAKE_INSTALL_PREFIX="%{buildroot}/usr" -P %{_builddir}/%{srcpkgdir}/build/cmake_install.cmake
+desktop-file-validate %{buildroot}/%{_datadir}/applications/%{progname}.desktop
 # Put a few things in the places we expect
 mkdir -p %{buildroot}%{_datadir}/mime/packages
 mv %{buildroot}%{_datadir}/mime-info/* %{buildroot}/%{_datadir}/mime/packages
@@ -116,21 +117,14 @@ rmdir %{buildroot}/%{_datadir}/mime-info/
 %find_lang %{progname}
 
 %post
-update-desktop-database &> /dev/null || :
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 touch --no-create %{_datadir}/mime/packages &>/dev/null || :
 
 %postun
-update-desktop-database &> /dev/null || :
 if [ $1 -eq 0 ] ; then
     touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
     update-mime-database %{_datadir}/mime &> /dev/null || :
 fi
-
-%posttrans
-gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %files -f %{progname}.lang
@@ -163,6 +157,16 @@ update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 
 %changelog
+* Fri Mar 19 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.32.20210319git5c731cd-3
+- Address more fedora-review issues
+
+* Fri Mar 19 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.32.20210319git5c731cd-1
+- Update to latest upstream snapshot
+- Address a few more fedora-review issues
+
+* Thu Mar 18 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.32.20210318git4d58c84-2
+- Fixes for fedora-review output
+
 * Thu Mar 18 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.32.20210318git4d58c84-1
 - Update to latest upstream snapshot
 
