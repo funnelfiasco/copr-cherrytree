@@ -1,11 +1,11 @@
-%global git_date 20210319
-%global git_rev 5c731cd
-%global git_revision    5c731cdea73a14645b141284f47dfc4498db18d9
+%global git_date 20210323
+%global git_rev cdb41a6
+%global git_revision    cdb41a6d08e6ba8bf573bfab0855eede7ed440c7
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.32.%{git_date}git%{git_rev}
-Release:    3%{?dist}
+Version:    0.99.33.%{git_date}git%{git_rev}
+Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
 
@@ -135,6 +135,7 @@ fi
 %{_datadir}/cherrytree/data/script3.js
 %{_datadir}/cherrytree/data/styles3.css
 %{_datadir}/cherrytree/language-specs/clisp.lang
+%{_datadir}/cherrytree/language-specs/dart.lang
 %{_datadir}/cherrytree/language-specs/elixir.lang
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/cherrytree/language-specs/nasm.lang
@@ -157,6 +158,9 @@ fi
 
 
 %changelog
+* Tue Mar 23 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.33.20210323gitcdb41a6-1
+- Update to version 0.99.33
+
 * Fri Mar 19 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.32.20210319git5c731cd-3
 - Address more fedora-review issues
 
