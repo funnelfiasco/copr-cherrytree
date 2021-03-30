@@ -21,24 +21,19 @@ BuildRequires: libcurl-devel uchardet-devel
 BuildRequires: fmt-devel
 BuildRequires: spdlog-devel
 
-# This may be more explicit requires than strictly necessary. It is the result of running ldd on
-# the binary and `rpm -q --whatprovides`-ing the results
 Requires: atk
 Requires: atkmm
 Requires: at-spi2-atk
 Requires: at-spi2-core
-#Requires: bzip2-libs
 Requires: cairo
 Requires: cairo-gobject
 Requires: cairomm
-#Requires: dbus-libs
 Requires: enchant2
 Requires: expat
 Requires: fontconfig
 Requires: freetype
 Requires: fribidi
 Requires: gdk-pixbuf2
-#Requires: glib2
 Requires: glibc
 Requires: glibmm24
 Requires: graphite2
@@ -48,47 +43,11 @@ Requires: gtkmm30
 Requires: gtksourceview3
 Requires: gtksourceviewmm3
 Requires: harfbuzz
-#Requires: libblkid
-#Requires: libdatrie
-#Requires: libepoxy
-#Requires: libffi
-#Requires: libgcc
-#Requires: libgcrypt
-#Requires: libgpg-error
-#Requires: libmount
-#Requires: libpng
-#Requires: libselinux
-#Requires: libsigc++20
-#Requires: libstdc++
-#Requires: libthai
-#Requires: libwayland-client
-#Requires: libwayland-cursor
-#Requires: libwayland-egl
-#Requires: libX11
-#Requires: libXau
-#Requires: libxcb
-#Requires: libXcomposite
-#Requires: libXcursor
-#Requires: libXdamage
-#Requires: libXext
-#Requires: libXfixes
-#Requires: libXi
-#Requires: libXinerama
-#Requires: libxkbcommon
-#Requires: libxml++
-#Requires: libxml2
-#Requires: libXrandr
-#Requires: libXrender
-#Requires: lz4-libs
 Requires: pango
 Requires: pangomm
 Requires: pcre
 Requires: pcre2
 Requires: pixman
-#Requires: sqlite-libs
-#Requires: systemd-libs
-#Requires: xz-libs
-#Requires: zlib
 
 %description
 CherryTree is a hierarchical note taking application, featuring rich text and
