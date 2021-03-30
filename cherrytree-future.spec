@@ -1,6 +1,6 @@
-%global git_date 20210323
-%global git_rev cdb41a6
-%global git_revision    cdb41a6d08e6ba8bf573bfab0855eede7ed440c7
+%global git_date 20210330
+%global git_rev 68a5ef3
+%global git_revision    68a5ef3e4911318d53c6bb019853ef34ee09f148
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -158,6 +158,10 @@ fi
 
 
 %changelog
+* Tue Mar 30 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.33.20210330git68a5ef3-1
+- Update to latest upstream snapshot
+- Adds support for Korean dialogs
+
 * Tue Mar 23 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.33.20210323gitcdb41a6-1
 - Update to version 0.99.33
 
