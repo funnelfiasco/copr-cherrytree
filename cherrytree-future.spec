@@ -1,6 +1,6 @@
-%global git_date 20210807
-%global git_rev eff9cc9
-%global git_revision    eff9cc9a9c38032e738bacb66725e17a11243a7d
+%global git_date 20210913
+%global git_rev 561cc44
+%global git_revision    561cc44fc114ad65fd87981afc30cff2d37914d0
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -117,6 +117,9 @@ fi
 
 
 %changelog
+* Mon Sep 13 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.40.20210913git561cc44-1
+- Update to latest upstream snapshot
+
 * Sat Aug 07 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.40.20210807giteff9cc9-1
 - Update to version 0.99.40
 
