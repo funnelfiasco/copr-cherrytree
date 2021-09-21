@@ -1,10 +1,10 @@
-%global git_date 20210915
-%global git_rev 05d0378
-%global git_revision    05d0378504a99418f77023a7b7fdde8f007536e6
+%global git_date 20210921
+%global git_rev 07fbfa2
+%global git_revision    07fbfa28ffe3322bb9830adebe348b550fe7c11b
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.40.%{git_date}git%{git_rev}
+Version:    0.99.41.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -117,6 +117,10 @@ fi
 
 
 %changelog
+* Tue Sep 21 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.41.20210921git07fbfa2-1
+- Update to latest upstream snapshot
+- Includes version 0.99.41
+
 * Wed Sep 15 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.40.20210915git05d0378-1
 - Update to latest upstream snapshot
 
