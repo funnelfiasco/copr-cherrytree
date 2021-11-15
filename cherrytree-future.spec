@@ -1,10 +1,10 @@
-%global git_date 20210921
-%global git_rev 07fbfa2
-%global git_revision    07fbfa28ffe3322bb9830adebe348b550fe7c11b
+%global git_date 20211112
+%global git_rev 7b21a32
+%global git_revision    7b21a32aa340b2de15cbc5a2f87811f8681d5622
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.41.%{git_date}git%{git_rev}
+Version:    0.99.42.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -92,13 +92,16 @@ fi
 %dir %{_datadir}/cherrytree
 %{_datadir}/cherrytree/data/user-style.xml
 %{_datadir}/cherrytree/data/script3.js
-%{_datadir}/cherrytree/data/styles3.css
+%{_datadir}/cherrytree/data/styles4.css
+%{_datadir}/cherrytree/language-specs/AutoHoykey.lang
 %{_datadir}/cherrytree/language-specs/clisp.lang
 %{_datadir}/cherrytree/language-specs/dart.lang
 %{_datadir}/cherrytree/language-specs/elixir.lang
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/cherrytree/language-specs/nasm.lang
 %{_datadir}/cherrytree/icons/ct_home.svg
+%{_datadir}/cherrytree/icons/Breeze_Light_icons/*svg
+%{_datadir}/cherrytree/icons/Breeze_Dark_icons/*svg
 %{_datadir}/cherrytree/styles/Amy.xml
 %{_datadir}/cherrytree/styles/cobalt-darkened.xml
 %{_datadir}/cherrytree/styles/classic.xml
@@ -117,6 +120,10 @@ fi
 
 
 %changelog
+* Fri Nov 12 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.42.20211112git7b21a32-1
+- Update to latest upstream snapshot
+- Includes version 0.99.42
+
 * Tue Sep 21 2021 Ben Cotton <bcotton@fedoraproject.org> - 0.99.41.20210921git07fbfa2-1
 - Update to latest upstream snapshot
 - Includes version 0.99.41
