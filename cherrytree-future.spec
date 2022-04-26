@@ -1,10 +1,10 @@
-%global git_date 20220222
-%global git_rev 0f84c12
-%global git_revision    0f84c12bbc044931db6d5fac07b5a4b734533b43
+%global git_date 20220426
+%global git_rev f3ab818
+%global git_revision    f3ab81813b820a048048bf634740d8424a4acec6
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.46.%{git_date}git%{git_rev}
+Version:    0.99.47.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -97,6 +97,7 @@ fi
 %{_datadir}/cherrytree/language-specs/clisp.lang
 %{_datadir}/cherrytree/language-specs/dart.lang
 %{_datadir}/cherrytree/language-specs/elixir.lang
+%{_datadir}/cherrytree/language-specs/hcl.lang
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/cherrytree/language-specs/nasm.lang
 %{_datadir}/cherrytree/icons/ct_home.svg
@@ -120,7 +121,10 @@ fi
 
 
 %changelog
-* Tue Feb 22 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.46.2022022git0f84c12-1
+* Tue Apr 26 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.47.20220426gitf3ab818-1
+- Update to version 0.99.47
+
+* Tue Feb 22 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.46.20220222git0f84c12-1
 - Update to version 0.99.46
 
 * Wed Jan 19 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.45.20220119gite343006-1
