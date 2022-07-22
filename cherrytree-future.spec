@@ -1,10 +1,10 @@
-%global git_date 20220426
-%global git_rev f3ab818
-%global git_revision    f3ab81813b820a048048bf634740d8424a4acec6
+%global git_date 20220722
+%global git_rev 81f9a56
+%global git_revision    81f9a5647212a2f00773148994b7d11d6857dbf4
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.47.%{git_date}git%{git_rev}
+Version:    0.99.48.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -97,9 +97,11 @@ fi
 %{_datadir}/cherrytree/language-specs/clisp.lang
 %{_datadir}/cherrytree/language-specs/dart.lang
 %{_datadir}/cherrytree/language-specs/elixir.lang
+%{_datadir}/cherrytree/language-specs/gdscript.lang
 %{_datadir}/cherrytree/language-specs/hcl.lang
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/cherrytree/language-specs/nasm.lang
+%{_datadir}/cherrytree/language-specs/solidity.lang
 %{_datadir}/cherrytree/icons/ct_home.svg
 %{_datadir}/cherrytree/icons/Breeze_Light_icons/*svg
 %{_datadir}/cherrytree/icons/Breeze_Dark_icons/*svg
@@ -113,7 +115,7 @@ fi
 %{_datadir}/cherrytree/styles/solarized-light.xml
 %{_datadir}/cherrytree/styles/tango.xml
 %{_datadir}/applications/%{progname}.desktop
-%{_datadir}/metainfo/com.giuspen.%{progname}.metainfo.xml
+%{_datadir}/metainfo/net.giuspen.%{progname}.metainfo.xml
 %{_datadir}/mime/packages/%{progname}.mime
 %{_datadir}/mime/packages/%{progname}.keys
 %{_datadir}/icons/hicolor/scalable/apps/%{progname}.svg
@@ -121,6 +123,9 @@ fi
 
 
 %changelog
+* Fri Jul 22 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.48.20220722git81f9a56-1
+- Update to latest upstream snapshot (includes version 0.99.48)
+
 * Tue Apr 26 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.47.20220426gitf3ab818-1
 - Update to version 0.99.47
 
