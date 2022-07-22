@@ -10,7 +10,7 @@ Release:    1%{?dist}
 Summary:    Hierarchical note taking application
 
 License:    GPLv3+
-URL:        http://www.giuspen.com/cherrytree/
+URL:        https://www.giuspen.net/cherrytree/
 Source0:    https://github.com/giuspen/cherrytree/archive/%{git_revision}.zip
 
 BuildRequires: cmake
