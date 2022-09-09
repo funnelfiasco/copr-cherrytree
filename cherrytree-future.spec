@@ -1,6 +1,6 @@
-%global git_date 20220722
-%global git_rev 81f9a56
-%global git_revision    81f9a5647212a2f00773148994b7d11d6857dbf4
+%global git_date 20220907
+%global git_rev 1547782
+%global git_revision    15477826cb49bdce6115902fa75857f3f81a8904
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -123,6 +123,12 @@ fi
 
 
 %changelog
+* Wed Sep 07 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.48.20220907git1547782-1
+- Update to latest upstream snapshot
+
+* Tue Jul 26 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.48.20220726git3f1c7ca-1
+- Update to latest upstream snapshot
+
 * Fri Jul 22 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.48.20220722git81f9a56-1
 - Update to latest upstream snapshot (includes version 0.99.48)
 
