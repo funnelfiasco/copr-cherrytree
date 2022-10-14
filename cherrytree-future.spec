@@ -1,10 +1,10 @@
-%global git_date 20220907
-%global git_rev 1547782
-%global git_revision    15477826cb49bdce6115902fa75857f3f81a8904
+%global git_date 20221012
+%global git_rev 778e685
+%global git_revision    778e6852c6099d64cb4c5b9cfefd97592fc9d658
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    0.99.48.%{git_date}git%{git_rev}
+Version:    0.99.50.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -20,6 +20,7 @@ BuildRequires: libsq3-devel gettext-devel gettext intltool python3-lxml libxml2 
 BuildRequires: libcurl-devel uchardet-devel
 BuildRequires: fmt-devel
 BuildRequires: spdlog-devel
+BuildRequires: vte291-devel
 
 Requires: atk
 Requires: atkmm
@@ -48,6 +49,7 @@ Requires: pangomm
 Requires: pcre
 Requires: pcre2
 Requires: pixman
+Requires: vte291
 
 %description
 CherryTree is a hierarchical note taking application, featuring rich text and
@@ -123,6 +125,11 @@ fi
 
 
 %changelog
+* Wed Oct 12 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.50.20221012git778e685-1
+- Updated to version 0.99.50
+- Adds virtual terminal (and thus vte dependency)
+- Final version built for armhfp
+
 * Wed Sep 07 2022 Ben Cotton <bcotton@fedoraproject.org> - 0.99.48.20220907git1547782-1
 - Update to latest upstream snapshot
 
