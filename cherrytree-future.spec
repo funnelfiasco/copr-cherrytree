@@ -1,6 +1,6 @@
-%global git_date 20230307
-%global git_rev 655e07e
-%global git_revision    655e07e8fcfb3a602fd698f315ec78cdda01d337
+%global git_date 20230602
+%global git_rev 99a1a64
+%global git_revision    99a1a6405fe4adfdb5c45ec6f3301334ed0e5949
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
@@ -126,6 +126,9 @@ fi
 
 
 %changelog
+* Fri Jun 02 2023 Ben Cotton <bcotton@fedoraproject.org> - 0.99.55.20230602git99a1a64-1
+- Updated to latest upstream snapshot
+
 * Tue Mar 07 2023 Ben Cotton <bcotton@fedoraproject.org> - 0.99.55.20230307git655e07e-1
 - Updated to version 0.99.55
 
