@@ -1,6 +1,6 @@
 # copr-cherrytree
 
-A Fedora repository for the [Cherrytree heiarchical note taking application](http://www.giuspen.com/cherrytree/).
+A Fedora repository for the [Cherrytree hierarchical note taking application](http://www.giuspen.com/cherrytree/).
 
 This repository contains the spec files etc for building the [cherrytree COPR](https://copr.fedorainfracloud.org/coprs/bcotton/cherrytree/) I maintain. This content is licensed under the GNU GPLv3 (see [LICENSE](LICENSE) in this repository).
 
