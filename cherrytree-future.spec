@@ -1,17 +1,14 @@
-%global git_date 20230628
-%global git_rev da855f9
-%global git_revision    da855f90b807710b86237ebdc9082d400c7d0020
 %global progname        cherrytree
-%global srcpkgdir       %{progname}-%{git_revision}
+%global srcpkgdir       %{progname}-%{version}
 Name:       %{progname}-future
-Version:    0.99.56.%{git_date}git%{git_rev}
+Version:    1.0.0
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
 
 License:    GPLv3+
 URL:        https://www.giuspen.net/cherrytree/
-Source0:    https://github.com/giuspen/cherrytree/archive/%{git_revision}.zip
+Source0:    https://github.com/giuspen/cherrytree/archive/refs/tags/%{version}.zip
 
 BuildRequires: cmake
 BuildRequires: desktop-file-utils
@@ -50,6 +47,8 @@ Requires: pcre
 Requires: pcre2
 Requires: pixman
 Requires: vte291
+
+Provides: Provides: bundled(p7zip)
 
 %description
 CherryTree is a hierarchical note taking application, featuring rich text and
@@ -126,6 +125,9 @@ fi
 
 
 %changelog
+* Mon Jul 17 2023 Ben Cotton <bcotton@fedoraproject.org> - 1.0.0-1
+- Upstream release 1.0.0
+
 * Wed Jun 28 2023 Ben Cotton <bcotton@fedoraproject.org> - 0.99.56.20230628gitda855f9-1
 - Updated to version 0.99.56
 
