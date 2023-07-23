@@ -2,7 +2,7 @@
 %global srcpkgdir       %{progname}-%{version}
 Name:       %{progname}-future
 Version:    1.0.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 
 Summary:    Hierarchical note taking application
 
@@ -58,12 +58,14 @@ or SQLite file.
 
 %prep
 %setup -q -n %{srcpkgdir}
+# Remove bundled SPDLOG and FMT
+rm -rf %{_builddir}/%{srcpkgdir}/src/spdlog
 
 %build
 mkdir build
 cd build
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig/
-cmake -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug ..
+cmake -DUSE_SHARED_7ZIP=ON -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug ..
 make %{?_smp_mflags}
 
 %install
@@ -125,6 +127,9 @@ fi
 
 
 %changelog
+* Sat Jul 22 2023 Ben Cotton <bcotton@fedoraproject.org> - 1.0.0-2
+- Remove unused bundled at build time SPDLOG/FMT
+
 * Mon Jul 17 2023 Ben Cotton <bcotton@fedoraproject.org> - 1.0.0-1
 - Upstream release 1.0.0
 
