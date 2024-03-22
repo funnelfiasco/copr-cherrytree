@@ -1,7 +1,7 @@
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{version}
 Name:       %{progname}-future
-Version:    1.0.4
+Version:    1.1.0
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -96,6 +96,7 @@ fi
 %{_datadir}/cherrytree/data/user-style.xml
 %{_datadir}/cherrytree/data/script3.js
 %{_datadir}/cherrytree/data/styles4.css
+%{_datadir}/cherrytree/language-specs/abap.lang
 %{_datadir}/cherrytree/language-specs/AutoHoykey.lang
 %{_datadir}/cherrytree/language-specs/clisp.lang
 %{_datadir}/cherrytree/language-specs/dart.lang
@@ -113,6 +114,8 @@ fi
 %{_datadir}/cherrytree/styles/cobalt-darkened.xml
 %{_datadir}/cherrytree/styles/classic.xml
 %{_datadir}/cherrytree/styles/cobalt.xml
+%{_datadir}/cherrytree/styles/gruvbox-dark.xml
+%{_datadir}/cherrytree/styles/gruvbox-light.xml
 %{_datadir}/cherrytree/styles/kate.xml
 %{_datadir}/cherrytree/styles/oblivion.xml
 %{_datadir}/cherrytree/styles/solarized-dark.xml
@@ -125,8 +128,10 @@ fi
 %{_datadir}/icons/hicolor/scalable/apps/%{progname}.svg
 %{_mandir}/man1/%{progname}.1.gz
 
-
 %changelog
+* Fri Mar 22 2024 Ben Cotton <bcotton@fedoraproject.org> - 1.1.0-1
+- Upstream release 1.1.0
+
 * Sat Dec 23 2023 Ben Cotton <bcotton@fedoraproject.org> - 1.0.4-1
 - Upstream release 1.0.4
 
