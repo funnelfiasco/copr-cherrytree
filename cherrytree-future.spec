@@ -1,14 +1,19 @@
+%global git_date 20240823
+%global git_rev fc1d749
+%global git_revision fc1d7499067b9db9841175b5a2d6934dc65e4522
 %global progname        cherrytree
-%global srcpkgdir       %{progname}-%{version}
+#%global srcpkgdir       %{progname}-%{version}
+#%global srcpkgdir       %{progname}-%{git_revision}
 Name:       %{progname}-future
-Version:    1.1.4
+Version:    1.1.4.%{git_date}git%{git_rev}
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
 
 License:    GPLv3+
 URL:        https://www.giuspen.net/cherrytree/
-Source0:    https://github.com/giuspen/cherrytree/archive/refs/tags/%{version}.zip
+#Source0:    https://github.com/giuspen/cherrytree/archive/refs/tags/%{version}.zip
+Source0:    https://github.com/giuspen/cherrytree/archive/%{git_revision}.zip
 
 BuildRequires: cmake
 BuildRequires: desktop-file-utils
@@ -129,6 +134,9 @@ fi
 %{_mandir}/man1/%{progname}.1.gz
 
 %changelog
+* Fri Aug 23 2024 Ben Cotton <bcotton@fedoraproject.org> - 1.1.4.20240823gitfc1d749-1
+- New snapshot to fix upstream #2548
+
 * Mon Jul 29 2024 Ben Cotton <bcotton@fedoraproject.org> - 1.1.4-1
 - Upstream release 1.1.4
 
