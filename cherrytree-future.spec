@@ -1,6 +1,6 @@
-%global git_date 20240823
-%global git_rev fc1d749
-%global git_revision fc1d7499067b9db9841175b5a2d6934dc65e4522
+%global git_date 20240903
+%global git_rev b0953c4
+%global git_revision b0963c4f1a39797eea3e2af9dc7e193e9487a49a
 %global progname        cherrytree
 #%global srcpkgdir       %{progname}-%{version}
 #%global srcpkgdir       %{progname}-%{git_revision}
@@ -17,7 +17,7 @@ Source0:    https://github.com/giuspen/cherrytree/archive/%{git_revision}.zip
 
 BuildRequires: cmake
 BuildRequires: desktop-file-utils
-BuildRequires: gcc-c++ libtool autoconf gtkmm30-devel gtksourceviewmm3-devel libxml++-devel
+BuildRequires: gcc-c++ libtool autoconf gtkmm30-devel gtksourceview4-devel libxml++-devel
 BuildRequires: libsq3-devel gettext-devel gettext intltool python3-lxml libxml2 gspell-devel
 BuildRequires: libcurl-devel uchardet-devel
 BuildRequires: fmt-devel
@@ -43,8 +43,7 @@ Requires: graphite2
 Requires: gspell
 Requires: gtk3
 Requires: gtkmm30
-Requires: gtksourceview3
-Requires: gtksourceviewmm3
+Requires: gtksourceview4
 Requires: harfbuzz
 Requires: pango
 Requires: pangomm
@@ -104,14 +103,10 @@ fi
 %{_datadir}/cherrytree/language-specs/abap.lang
 %{_datadir}/cherrytree/language-specs/AutoHoykey.lang
 %{_datadir}/cherrytree/language-specs/clisp.lang
-%{_datadir}/cherrytree/language-specs/dart.lang
 %{_datadir}/cherrytree/language-specs/elixir.lang
-%{_datadir}/cherrytree/language-specs/gdscript.lang
 %{_datadir}/cherrytree/language-specs/hcl.lang
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/cherrytree/language-specs/nasm.lang
-%{_datadir}/cherrytree/language-specs/solidity.lang
-%{_datadir}/cherrytree/language-specs/typescript.lang
 %{_datadir}/cherrytree/icons/ct_home.svg
 %{_datadir}/cherrytree/icons/Breeze_Light_icons/*svg
 %{_datadir}/cherrytree/icons/Breeze_Dark_icons/*svg
@@ -125,7 +120,9 @@ fi
 %{_datadir}/cherrytree/styles/oblivion.xml
 %{_datadir}/cherrytree/styles/solarized-dark.xml
 %{_datadir}/cherrytree/styles/solarized-light.xml
+%{_datadir}/cherrytree/styles/styles.rng
 %{_datadir}/cherrytree/styles/tango.xml
+%{_datadir}/cherrytree/styles/xed.xml
 %{_datadir}/applications/%{progname}.desktop
 %{_datadir}/metainfo/net.giuspen.%{progname}.metainfo.xml
 %{_datadir}/mime/packages/%{progname}.mime
@@ -134,6 +131,11 @@ fi
 %{_mandir}/man1/%{progname}.1.gz
 
 %changelog
+* Tue Sep 03 2024 Ben Cotton <bcotton@fedoraproject.org> - 1.1.4.20240903gitb0953c4-1
+- New upstream snapshot
+- Changes from gtksourceview3 to gtksourceview4
+- Drops language specs for dart, gdscript, solidity, typescript
+
 * Fri Aug 23 2024 Ben Cotton <bcotton@fedoraproject.org> - 1.1.4.20240823gitfc1d749-1
 - New snapshot to fix upstream #2548
 
