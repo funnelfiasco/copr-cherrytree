@@ -47,7 +47,9 @@ Requires: pcre2
 Requires: pixman
 Requires: vte291
 
-Provides: Provides: bundled(p7zip)
+# I have not been able to get CherryTree to build with system p7zip and upstream
+# maintains changes to their bundled p7zip.
+Provides: bundled(p7zip) = 16.02
 
 %description
 CherryTree is a hierarchical note taking application, featuring rich text and
