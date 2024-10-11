@@ -1,19 +1,14 @@
-%global git_date 20240903
-%global git_rev b0953c4
-%global git_revision b0963c4f1a39797eea3e2af9dc7e193e9487a49a
 %global progname        cherrytree
-#%global srcpkgdir       %{progname}-%{version}
-#%global srcpkgdir       %{progname}-%{git_revision}
+%global srcpkgdir       %{progname}-%{version}
 Name:       %{progname}-future
-Version:    1.1.4.%{git_date}git%{git_rev}
+Version:    1.2.0
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
 
 License:    GPLv3+
 URL:        https://www.giuspen.net/cherrytree/
-#Source0:    https://github.com/giuspen/cherrytree/archive/refs/tags/%{version}.zip
-Source0:    https://github.com/giuspen/cherrytree/archive/%{git_revision}.zip
+Source0:    https://github.com/giuspen/cherrytree/archive/refs/tags/v%{version}.zip
 
 BuildRequires: cmake
 BuildRequires: desktop-file-utils
@@ -97,9 +92,11 @@ fi
 %license license.txt
 %{_bindir}/%{progname}
 %dir %{_datadir}/cherrytree
+%dir %{_datadir}/cherrytree/data
 %{_datadir}/cherrytree/data/user-style.xml
 %{_datadir}/cherrytree/data/script3.js
 %{_datadir}/cherrytree/data/styles4.css
+%dir %{_datadir}/cherrytree/language-specs
 %{_datadir}/cherrytree/language-specs/abap.lang
 %{_datadir}/cherrytree/language-specs/AutoHoykey.lang
 %{_datadir}/cherrytree/language-specs/clisp.lang
@@ -107,9 +104,11 @@ fi
 %{_datadir}/cherrytree/language-specs/hcl.lang
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/cherrytree/language-specs/nasm.lang
+%dir %{_datadir}/cherrytree/icons
 %{_datadir}/cherrytree/icons/ct_home.svg
 %{_datadir}/cherrytree/icons/Breeze_Light_icons/*svg
 %{_datadir}/cherrytree/icons/Breeze_Dark_icons/*svg
+%dir %{_datadir}/cherrytree/styles
 %{_datadir}/cherrytree/styles/Amy.xml
 %{_datadir}/cherrytree/styles/cobalt-darkened.xml
 %{_datadir}/cherrytree/styles/classic.xml
@@ -131,6 +130,9 @@ fi
 %{_mandir}/man1/%{progname}.1.gz
 
 %changelog
+* Fri Oct 04 2024 Ben Cotton <bcotton@fedoraproject.org> - 1.2.0-1
+- Upstream release 1.2.0
+
 * Tue Sep 03 2024 Ben Cotton <bcotton@fedoraproject.org> - 1.1.4.20240903gitb0953c4-1
 - New upstream snapshot
 - Changes from gtksourceview3 to gtksourceview4
