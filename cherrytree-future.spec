@@ -1,7 +1,7 @@
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{version}
 Name:       %{progname}-future
-Version:    1.3.0
+Version:    1.6.2
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -104,6 +104,7 @@ fi
 %{_datadir}/cherrytree/language-specs/clisp.lang
 %{_datadir}/cherrytree/language-specs/elixir.lang
 %{_datadir}/cherrytree/language-specs/hcl.lang
+%{_datadir}/cherrytree/language-specs/gkeyfile.lang
 %{_datadir}/cherrytree/language-specs/markdown-extra.lang
 %{_datadir}/cherrytree/language-specs/nasm.lang
 %dir %{_datadir}/cherrytree/icons
@@ -132,6 +133,9 @@ fi
 %{_mandir}/man1/%{progname}.1.gz
 
 %changelog
+* Mon Oct 06 2025 Ben Cotton <bcotton@fedoraproject.org> - 1.6.2-1
+- Upstream release 1.6.2
+
 * Sun Feb 09 2025 Ben Cotton <bcotton@fedoraproject.org> - 1.3.0-1
 - Upstream release 1.3.0
 
