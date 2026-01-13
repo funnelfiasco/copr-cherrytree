@@ -1,7 +1,7 @@
 %global progname        cherrytree
 %global srcpkgdir       %{progname}-%{version}
 Name:       %{progname}-future
-Version:    1.6.2
+Version:    1.6.3
 Release:    1%{?dist}
 
 Summary:    Hierarchical note taking application
@@ -133,6 +133,9 @@ fi
 %{_mandir}/man1/%{progname}.1.gz
 
 %changelog
+* Tue Jan 13 2026 Ben Cotton <bcotton@fedoraproject.org> - 1.6.3-1
+- Upstream release 1.6.3
+
 * Mon Oct 06 2025 Ben Cotton <bcotton@fedoraproject.org> - 1.6.2-1
 - Upstream release 1.6.2
 
